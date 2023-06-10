@@ -1,8 +1,8 @@
-//We have 'init'ialized 'npm inquirer 8.2.4 for this challenge. Here, we 'require' the 'inquirer' package, which we'll utilize to 'prompt' the user to provide their preferences on various aspects of the logo. This 'init' also generated our 'package.json' file in the root folder, which enables us to run tests on the generated logo and verify that it meets our acceptance criteria.
+//We have 'init'ialized 'npm inquirer 8.2.4 for this challenge. Here, we 'require' the 'inquirer' package, which we'll utilize to 'prompt' the user to provide their preferences for their logo. This 'init' also generated our 'package.json' file in the root folder, which enables us to run tests on the generated logo and verify that it meets our acceptance criteria.
 
 const inquirer = require('inquirer');
 
-//Here, we 'require' the 'fs module', which provides built-in functions that will allow us to 'read' the user's inputs and 'write' a saved svg file from them.
+//Here, we 'require' the 'fs module', which provides built-in functions that will allow us to 'read' the user's inputs and 'write' a saved svg file from the inputs.
 const fs = require('fs');
 
 //Here, we 'require' (import) the accompanying 'generateLogo'.js file, which stores (and styles) the user's inputs and 'generate's the content of the user's 'svg logo'.
@@ -20,7 +20,7 @@ const questions = [
     {
         type: 'input',
         name: 'logoColor',
-        message: 'Please enter a hexidecimal value for you logo-color. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://https://htmlcolorcodes.com/color-picker/'
+        message: 'Please enter a hexidecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
     },
     {
         type: 'input',
@@ -30,7 +30,7 @@ const questions = [
     {
         type: 'input',
         name: 'textColor',
-        message: 'Please enter a hexidecimal value for the text-color. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://https://htmlcolorcodes.com/color-picker/'
+        message: 'Please enter a hexidecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
     }
 ];
 

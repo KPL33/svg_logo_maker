@@ -21,7 +21,7 @@ function generateLogo(responses) {
 
   return `<svg width="300" height="300" version="1.1" xmlns="http://www.w3.org/2000/svg">
   ${shape.render()}
-  <text x="100" y="200" fill="${textColor}" font-size="20" text-anchor="middle">${logoText}</text>
+  <text x="150" y="170" fill="${textColor}" font-size="50" text-anchor="middle">${logoText}</text>
   </svg>`;
 }
 
