@@ -19,11 +19,12 @@ function generateLogo(responses) {
   const shape = getShape(logoShape);
   shape.setColor(logoColor);
 
-  return `
+  return `<svg width="200" height="250" version="1.1" xmlns="http://www.w3.org/2000/svg>
   ${shape.render()}
   ${logoColor}
   ${logoText}
   ${textColor}
+  </svg>
 `;
 }
 
