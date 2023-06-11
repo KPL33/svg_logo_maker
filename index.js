@@ -6,7 +6,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 //Here, we 'require' the accompanying 'generateLogo'.js file, which stores the user's inputs and 'generate's the content of the user's 'svg logo'.
-const generateLogo = require('./utils/generateLogo');
+const generateLogo = require('./lib/generateLogo');
 
 //Here, we declare an array of 'questions' that will prompt the user for — and store — their 'input'..
 
@@ -20,7 +20,7 @@ const questions = [
     {
         type: 'input',
         name: 'logoColor',
-        message: 'Please enter a hexadecimal value for your logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit https://htmlcolorcodes.com/color-picker/ for help: . Or, you may choose colors with basic names (red, green, blue, etc.)'
+        message: 'Please enter a hexadecimal value for your logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit https://htmlcolorcodes.com/color-picker/ for help: . Or, you may choose colors with basic names (red, green, blue, etc.).'
     },
     {
         type: 'input',
@@ -30,13 +30,13 @@ const questions = [
     {
         type: 'input',
         name: 'textColor',
-        message: 'Please enter a hexadecimal value for your logo-color'
+        message: 'Please enter a color for your text-color.'
     }
 ];
 
-//Here, we declare a 'function' that 'write's the 'logo.svg.' file, based on the 'logoContent' provided by the user via prompts. Because we want to save one instance each of Triangle, Circle and Square-shaped logos, we consider 'logoShape' as a paramater. Our other parameter, 'logContent' accounts for the user's other choices.
+//Here, we declare a 'function' that 'write's the 'logo.svg.' file, based on the 'logoContent' provided by the user via prompts. Because we want to save one instance each of the Triangle, Circle and Square-shaped logos, we consider 'logoShape' as a paramater. Our other parameter, 'logContent' accounts for the user's other choices.
 function writeLogo(logoContent, logoShape) {
-    
+
     //Here, we establish a naming convention string, "logo_" followed by the 'logoShape' and save this as the 'fileName' of our '.svg' file.
     const fileName = `logo_${logoShape.toLowerCase()}.svg`;
 
