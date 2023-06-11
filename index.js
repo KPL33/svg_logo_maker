@@ -20,7 +20,7 @@ const questions = [
     {
         type: 'input',
         name: 'logoColor',
-        message: 'Please enter a hexidecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
+        message: 'Please enter a hexadecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
     },
     {
         type: 'input',
@@ -30,20 +30,21 @@ const questions = [
     {
         type: 'input',
         name: 'textColor',
-        message: 'Please enter a hexidecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
+        message: 'Please enter a hexadecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
     }
 ];
 
 //Here, we declare a 'function' that 'write's the 'logo.svg.' file, based on the 'logoContent' provided by the user via prompts.
-function writeLogo(logoContent) {
+function writeLogo(logoContent, logoShape) {
     //This 'function' utilizes the 'fs' module's built-in 'writeFile' function to 'write' the 'logoContent' to an svg file. We also include 'err' as a possible paramater, in case any error should occur during the writing process.
-    fs.writeFile('logo.svg', logoContent, (err) => {
+    const fileName = `logo_${logoShape.toLowerCase()}.svg`;
+    fs.writeFile(`./examples/${fileName}`, logoContent, (err) => {
         //'if' an 'err'or occurs, the user is notified of this through a 'console' 'log'.
         if (err) {
-            console.error('Error writing logo.svg file:', err);
+            console.error(`Error writing ${fileName} file.`, err);
             //Otherwise, the user is notified that the operation was successful.
         } else {
-            console.log('logo.svg file generated successfully!');
+            console.log(`${fileName} file generated successfully!`);
         }
     });
 }
@@ -51,9 +52,9 @@ function writeLogo(logoContent) {
 //Here, we declare an 'async'hronous 'function' that 'await's the return of the user's 'responses' to the 'prompt's before executing the remaining code. In this way, we ensure that we can 'generate' the 'Markdown' and 'write' the 'README' file that will include all of the user-proivded 'responses'.
 async function init() {
     const responses = await inquirer.prompt(questions);
-    console.log(responses);
+    const logoShape = responses.logoShape.replace(' ', '_').toLowerCase();
     const logoContent = generateLogo(responses);
-    writeLogo(logoContent);
+    writeLogo(logoContent, logoShape);
 
 }
 

@@ -19,9 +19,9 @@ function generateLogo(responses) {
   const shape = getShape(logoShape);
   shape.setColor(logoColor);
 
-  return `<svg width="300" height="300" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  return `<svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
   ${shape.render()}
-  <text x="150" y="170" fill="${textColor}" font-size="50" text-anchor="middle">${logoText}</text>
+  <text x="150" y="120" fill="${textColor}" font-size="50" text-anchor="middle">${logoText}</text>
   </svg>`;
 }
 
