@@ -20,7 +20,7 @@ const questions = [
     {
         type: 'input',
         name: 'logoColor',
-        message: 'Please enter a hexadecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
+        message: 'Please enter a hexadecimal value for your logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit https://htmlcolorcodes.com/color-picker/ for help: . Or, you may choose colors with basic names (red, green, blue, etc.)'
     },
     {
         type: 'input',
@@ -30,7 +30,7 @@ const questions = [
     {
         type: 'input',
         name: 'textColor',
-        message: 'Please enter a hexadecimal value for you logo-color, beginning with the # sign. If you are unfamilir with choosing colors based on hexidecimal value, please visit this website for help: https://htmlcolorcodes.com/color-picker/'
+        message: 'Please enter a hexadecimal value for your logo-color'
     }
 ];
 
