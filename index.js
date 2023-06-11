@@ -1,14 +1,14 @@
-//We have 'init'ialized 'npm inquirer 8.2.4 for this challenge. Here, we 'require' the 'inquirer' package, which we'll utilize to 'prompt' the user to provide their preferences for their logo. This 'init' also generated our 'package.json' file in the root folder, which enables us to run tests on the generated logo and verify that it meets our acceptance criteria.
+//We have initialized 'npm inquirer 8.2.4 for this challenge. Here, we 'require' the 'inquirer' package, which we'll utilize to 'prompt' the user to provide their preferences for their logo. This 'init' also generated our 'package.json' file in the root folder, which enables us to run tests on the generated logo and verify that it meets our acceptance criteria.
 
 const inquirer = require('inquirer');
 
-//Here, we 'require' the 'fs module', which provides built-in functions that will allow us to 'read' the user's inputs and 'write' a saved svg file from the inputs.
+//Here, we 'require' the 'fs module'. It allows us to 'read' the user's inputs and 'write' a saved .svg file from the inputs.
 const fs = require('fs');
 
-//Here, we 'require' (import) the accompanying 'generateLogo'.js file, which stores (and styles) the user's inputs and 'generate's the content of the user's 'svg logo'.
+//Here, we 'require' the accompanying 'generateLogo'.js file, which stores the user's inputs and 'generate's the content of the user's 'svg logo'.
 const generateLogo = require('./utils/generateLogo');
 
-//Here, we declare an array of 'questions' that will prompt the user for — and store — their 'input'. Most are standard 'input' prompts, but because we want to limit the user's input to 1 of 3 choices for the 'logoShape', we assign that question a 'type' of 'list'.
+//Here, we declare an array of 'questions' that will prompt the user for — and store — their 'input'..
 
 const questions = [
     {
@@ -34,10 +34,13 @@ const questions = [
     }
 ];
 
-//Here, we declare a 'function' that 'write's the 'logo.svg.' file, based on the 'logoContent' provided by the user via prompts.
+//Here, we declare a 'function' that 'write's the 'logo.svg.' file, based on the 'logoContent' provided by the user via prompts. Because we want to save one instance each of Triangle, Circle and Square-shaped logos, we consider 'logoShape' as a paramater. Our other parameter, 'logContent' accounts for the user's other choices.
 function writeLogo(logoContent, logoShape) {
-    //This 'function' utilizes the 'fs' module's built-in 'writeFile' function to 'write' the 'logoContent' to an svg file. We also include 'err' as a possible paramater, in case any error should occur during the writing process.
+    
+    //Here, we establish a naming convention string, "logo_" followed by the 'logoShape' and save this as the 'fileName' of our '.svg' file.
     const fileName = `logo_${logoShape.toLowerCase()}.svg`;
+
+    //Here, we utilize the 'fs' module's built-in 'writeFile' function to save our svg file. We also include 'err' as a possible paramater, in case any error should occur during the writing process.
     fs.writeFile(`./examples/${fileName}`, logoContent, (err) => {
         //'if' an 'err'or occurs, the user is notified of this through a 'console' 'log'.
         if (err) {
@@ -49,7 +52,7 @@ function writeLogo(logoContent, logoShape) {
     });
 }
 
-//Here, we declare an 'async'hronous 'function' that 'await's the return of the user's 'responses' to the 'prompt's before executing the remaining code. In this way, we ensure that we can 'generate' the 'Markdown' and 'write' the 'README' file that will include all of the user-proivded 'responses'.
+//Here, we declare an 'async'hronous 'function' that 'await's the return of the user's 'responses' to the 'prompt's before executing the remaining code. In this way, we ensure that we can 'generate' and 'write' the 'Logo' file and ensure that it includes all of the user-proivded 'responses'.
 async function init() {
     const responses = await inquirer.prompt(questions);
     const logoShape = responses.logoShape.replace(' ', '_').toLowerCase();
@@ -58,5 +61,5 @@ async function init() {
 
 }
 
-//Once we have acquired all of the necessary components with the 'init' function, we call it and our 'README' file generates in our root folder.
+//Once we have acquired all of the necessary components with the 'init' function, we call it and our 'Logo' file generates to our 'examples' folder.
 init();
