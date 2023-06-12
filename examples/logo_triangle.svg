@@ -1,5 +1,5 @@
 <svg width="300" height="200" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
   <polygon points="150, 10 244, 169 56, 169" fill="red" />
-  <text x="150" y="120" fill="#000000" font-size="50" text-anchor="middle">KPL</text>
+  <text x="150" y="120" fill="#EEEEEE" font-size="50" text-anchor="middle">abc</text>
   </svg>
