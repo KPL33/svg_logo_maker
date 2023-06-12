@@ -13,7 +13,7 @@ This repository contains files relating to the 'SVG Logo Maker', which can dynam
 ![SVG Logo Maker App](assets/app.png)
 ![Output Logo](assets/logo.png)
 
-• Here is a link to a video demonstration of the app in action: 
+• Here is a link to a video demonstration of the app in action: https://github.com/KPL33/svg_logo_maker/blob/main/assets/Kevin_Lewis_SVG_Maker_demo.webm
 
 • Here is a link to one of the files generated in the demonstation video:
 https://github.com/KPL33/svg_logo_maker/blob/main/examples/logo_circle.svg
